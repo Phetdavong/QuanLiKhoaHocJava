@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Admin</title>
+    <style type="text/css">
+    	body {
+    position: relative;
+  }
+.nachu{
+  	background-color: #2E2E2E;
+    padding: 5px;
+    color: white;
+    text-align: center
+}
+  ul.nav-pills {
+    top: 50px;
+    position: fixed;
+  }
+
+  div.col-8 div {
+    margin-top: 80px;
+    height: 100%;
+    background-color: #58FA82;
+    text-align: center;
+  }
+#section1
+{
+  margin-top: 15px;
+}
+  .title
+  {
+    padding: 100px;
+    margin-left: 50px;
+    margin-top: 100px;
+  }
+  .titla
+  {
+    padding: 10px;
+  }
+  h2{
+    margin-top: 50px;
+    font-size: 35px;
+    text-align: center;
+  }
+    </style>
+</head>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="1">
+  <div class="fixed-top">
+    <h3 class="nachu"> LGLH </h3>
+  </div>
+  <div class="container-fluid">
+      <div class="row">
+        <nav class="col-sm-3 col-4" id="myScrollspy">
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/quanlikhoahoc"style="padding-right: 110px; border-right: 2px solid black;"><p> Quản lí thông tin khóa học </p></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/quanlibaihoc" style="padding-right: 110px; border-right: 2px solid black;"><p>Quản lí thông tin bài học</p></a>
+            </li>
+              <li class="nav-item">
+	              <a class="nav-link" href="/admin/sinhvien" style="padding-right: 110px; border-right: 2px solid black;"><p>Lấy danh sách exel</p></a>
+	            </li>
+            <li class="nav-item"  style="padding-right: 110px; border-right: 2px solid black;" >
+              <a class="nav-link" href="javascript: logoutForm.submit()">Đăng xuất</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="col-sm-9 col-8">
+        
+         	<div sec:authorize = "isAuthenticated()">
+			&nbsp;&nbsp;<strong>Chào mừng:</strong>&nbsp;&nbsp;&nbsp;<span style="color:blue;font-weight: bold;font-size:2em;" sec:authentication="name">Username</span>
+			&nbsp;
+			<span sec:authentication="principal.authorities"></span>			
+		
+			<form name="logoutForm" sec:authorize = "isAuthenticated()" th:action="@{/doLogout}" method="post" th:hidden="true">
+				<input type="submit" value="Đăng xuất">
+			</form>
+		</div>
+        </div>
+      </div>
+         <div style="margin-top:120px;float: right;">
+	     <a th:href="@{/khoahoc}"><button type="button" class="btn btn-info">Trang chủ</button></a>  
+	   	 </div>
+  </div>
+
+ <div class="footer-copyright text-center py-3 fixed-bottom" style="margin-top: 15px;background-color: black;"> © 2020 Copyright:
+      		 <a href="https://LGLH/"> LGLH.com</a>
+ 	</div>
+</body>
+</html>

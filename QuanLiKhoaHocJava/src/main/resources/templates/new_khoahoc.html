@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+<head>
+<meta charset="UTF-8">
+<title>Thêm khóa học</title>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<style>
+   	body {
+    position: relative;
+  }
+.nachu{
+  	background-color: #2E2E2E;
+    padding: 5px;
+    color: white;
+    text-align: center
+}
+  ul.nav-pills {
+    top: 30px;
+    position: fixed;
+  }
+
+#section1
+{
+  margin-top: 15px;
+}
+  .title
+  {
+    padding: 100px;
+    margin-left: 50px;
+    margin-top: 100px;
+  }
+  .titla
+  {
+    padding: 10px;
+  }
+  h2{
+    margin-top: 50px;
+    font-size: 35px;
+    text-align: center;
+  }
+  .btn-secondary
+  {
+  	float:right;
+  }
+</style>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="1">
+<div class="fixed-top">
+    <h3 class="nachu"> LGLH </h3>
+    <div style="margin-left:100px;">
+     	<a th:href="@{/khoahoc}"><button type="button" class="btn btn-info">Trang chủ</button></a>  
+   </div>
+  </div>
+	<div align="center">
+		<h1 style="padding: 10px; color:black; font-size: 40px;margin-top: 50px;"> <strong>Thêm một khóa học</strong></h1><br>
+		<form  th:action="@{/admin/quanlikhoahoc/save}" th:object="${khoahoc}" method="post"
+			enctype="multipart/form-data">
+			<table border="0" cellpadding="10" style="font-size: 18px;">
+			
+				<tr style="float: left; margin-left: 0px;">
+					<td><strong>Nhập mã khóa học:</strong> &nbsp;&nbsp;&nbsp;</td>
+					<td><input type="text" th:field="*{makhoahoc}"></td>
+				</tr>
+				<tr>
+					<td><strong>Nhập ảnh logo khóa học: </strong> &nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="file" name="fileImage" id="fileImage" accept="image/png, image/jpeg">
+					<img id=thumbnail alt="Logo Preview" width="100px" height= "100px"></td>
+				</tr>
+	
+				<tr style="float: left; margin-left: 0px;">
+					<td><strong>Nhập tên khóa học: </strong>&nbsp;&nbsp;&nbsp;</td>
+					<td><input type="text" th:field="*{tenkhoahoc}"></td>
+				</tr>
+				<tr>
+					<td><strong>Nhập Mô tả khóa học: </td></strong>
+				</tr>
+				<tr style="float: left; margin-left: 200px;">
+					<td><textarea rows="9" cols="60" th:field=*{mota}></textarea></td>
+				</tr>
+				<tr style="float: right;padding-top: 100px; margin-right: 50px;">
+					<td colspan="2"><input class="btn btn-primary" type="submit" value="Save"></td>
+				</tr>
+				
+			</table>
+		</form>
+	</div>
+
+	 <div class="footer-copyright text-center py-3" style="margin-top: 15px;background-color: rgba(0, 0, 0, 0.2);"> © 2020 Copyright:
+   <a href="https://LGLH/"> LGLH.com</a>
+ </div>
+	<script type="text/javascript">
+			$(document).ready(function(){
+				$('#fileImage').change(function(){
+					showImageThumbnail(this);	
+				});
+			});
+			function showImageThumbnail(fileInput){
+				file = fileInput.files[0];
+				reader = new FileReader();
+				reader.onload = function(e){
+					$('#thumbnail').attr('src',e.target.result);
+				};
+				reader.readAsDataURL(file);
+			}
+	</script>
+</body>
+</html>

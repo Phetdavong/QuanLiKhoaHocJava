@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="UTF-8">
+<title>Chi Tiết khóa học</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+<link rel="stylesheet" href="styl.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+body {
+	position: relative;
+}
+
+.nachu {
+	background-color: #2E2E2E;
+	padding: 5px;
+	color: white;
+	text-align: center
+}
+
+ul.nav-pills {
+	top: 70px;
+	position: fixed;
+}
+
+#wrapper {
+	margin-top: 5px;
+	height: 700px;
+	width: 100%;
+	border: 1px solid black;
+	padding: 20px;
+	overflow: auto;
+}
+
+#scroller {
+	height: 650px;
+}
+
+.chinh1 {
+	text-align: center;
+	padding: 15px;
+	color: white;
+	background-color: green;
+	font-size: 25px;
+	border-bottom: 2px solid rgb(57, 57, 218);
+}
+
+.gach {
+	text-align: center;
+	padding: 20px;
+	color: black;
+	font-size: 25px;
+	border-bottom: 2px solid rgb(57, 57, 218);
+}
+
+.gach1 {
+	margin-left: 5px;
+	font-size: 20px;
+	padding: 10px;
+	color: rgb(241, 238, 238);
+}
+
+.gach1:hover {
+	color: red;
+}
+
+.chux {
+	font-size: 20px;
+	margin-top: 15px;
+	color: green;
+	border-bottom: 1px solid rgb(180, 180, 192);
+	margin-bottom: 10px;
+}
+
+.chux2 {
+	text-align: left;
+}
+
+.chux1 {
+	text-align: right;
+}
+
+.chux2:hover {
+	color: rgb(200, 233, 14);
+}
+
+.chux1:hover {
+	color: rgb(236, 240, 10);
+}
+
+.menhde {
+	padding: 10px;
+}
+
+.noidung {
+	background-color: rgb(50, 172, 20);
+	border: 1px solid rgb(180, 180, 192);
+	margin-bottom: 20px;
+}
+
+h5 {
+	margin-left: 12px;
+	font-size: 20px;
+	color: rgb(243, 241, 239);
+}
+
+li {
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+
+.maul {
+	color: rgb(248, 164, 7);
+}
+
+.maul:hover {
+	color: rgb(253, 252, 251);
+}
+
+ol {
+	border: 1px solid rgb(180, 180, 192);
+	border-left: 5px solid green;
+}
+
+li {
+	padding: 2px;
+}
+
+.tuoi {
+	border: 1px solid rgb(180, 180, 192);
+	padding: 10px;
+	font-size: 15px;
+}
+
+hr {
+	border: 1px solid rgb(180, 180, 192);
+}
+</style>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="1">
+	<div class="fixed-top nachu">
+		<h4>LGLH</h4>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<nav class="col-sm-3 col-4">
+				<div class="mau1">
+					<ul class="nav nav-pills flex-column">
+						<li class="nav-item">
+							<h5 th:each="baihoc : ${listAllBaiHocByMaKhoaHoc}">
+								<a
+									th:href="@{'/khoahoc/'+${baihoc.danhmuckhoahoc.makhoahoc}+'/'+${baihoc.mabaihoc}}">
+									<strong
+									th:text="${baihoc.tenbaihoc}"></strong></a>
+							</h5>
+						</li>
+					</ul>
+				</div>
+				</nav>
+				
+				<nav class="col-sm-9 col-8">
+					<ul class="nav nav-pills flex-column">
+						<li class="nav-item">
+							<iframe width = "900px;" height="500px;" src="https://www.youtube.com/embed/2O-ouny0Cyg" 
+							frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+							 allowfullscreen style="padding-left: 50px;padding-right:0px;margin-left: 30px;"></iframe>
+						</li>
+					</ul>
+			</nav>
+</div>
+</div>
+
+		
+
+
+	<div class="footer-copyright text-center py-3 fixed-bottom"
+		style="margin-top: 15px; background-color: rgba(0, 0, 0, 0.2);">
+		© 2020 Copyright: <a href="https://LGLH/"> LGLH.com</a>
+	</div>
+</body>
+</html>

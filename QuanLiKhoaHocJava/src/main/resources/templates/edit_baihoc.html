@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+<head>
+<meta charset="UTF-8">
+<title>Cập nhật bài học</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" th:href="@{/richtext/richtext.min.css}">
+</head>
+<style>
+   	body {
+    position: relative;
+  }
+.nachu{
+  	background-color: #2E2E2E;
+    padding: 5px;
+    color: white;
+    text-align: center
+}
+  ul.nav-pills {
+    top: 100px;
+    position: fixed;
+  }
+
+#section1
+{
+  margin-top: 15px;
+}
+  .title
+  {
+    padding: 100px;
+    margin-left: 50px;
+    margin-top: 100px;
+  }
+  .titla
+  {
+    padding: 10px;
+  }
+  h2{
+    margin-top: 50px;
+    font-size: 35px;
+    text-align: center;
+  }
+  .btn-secondary
+  {
+  	float:right;
+  }
+</style>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="1">
+  <div class="fixed-top">
+    <h3 class="nachu"> LGLH </h3>
+  </div>
+	<div align="center">
+		<h1 style="margin-top: 70px; font-size:35px; color:blue;">Thêm một khóa học</h1><br>
+		<form th:action="@{/admin/quanlibaihoc/save}" th:object="${baihoc}" method="post">
+		 
+			<table border="0" cellpadding="10">
+				<tr>
+					<td><strong>Nhập mã bài học:</strong> </td>
+					<td><input type="text" th:field="*{mabaihoc}" readonly="readonly"></td>
+				</tr>
+				<tr>
+					<td><strong>Nhập số thứ tự bài học:</strong> </td>
+					<td><input type="text" th:field="*{stt}"></td>
+				</tr> 
+	
+				<tr>
+					<td><strong>Nhập tên bài học: </strong></td>
+					<td><input type="text" th:field="*{tenbaihoc}"></td>
+				</tr>
+				
+				<tr>
+					<td><strong>Nhập nội dung bài học:</strong> </td>
+					<td><textarea id="noidungbaihoc" th:field="*{noidung}" th:utext="${baihoc.noidung}"></textarea></td>
+				</tr>
+				
+				<tr>
+					<td><strong>Nhập mã khóa học: </strong></td>
+					<td><input type="text" th:field="*{danhmuckhoahoc.makhoahoc}"></td>
+				</tr>
+				
+				<tr style="float: right;padding-top: 20px;">
+					<td colspan="2"><input class="btn btn-primary" type="submit" value="Save"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	
+	 <div class="footer-copyright text-center py-3" style="margin-top: 15px;background-color: rgba(0, 0, 0, 0.2);"> © 2020 Copyright:
+   <a href="https://LGLH/"> LGLH.com</a>
+ </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script th:src="@{/richtext/jquery.richtext.min.js}"></script> 
+<script type="text/javascript">
+		$(document).ready(function(){
+			$("#noidungbaihoc").richText();
+		});
+	</script>
+</body>
+</html>

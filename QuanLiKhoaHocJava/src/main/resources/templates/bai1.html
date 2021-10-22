@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giao diện</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<style>
+   	body {
+    position: relative;
+  }
+.nachu {
+	background-color: #2E2E2E;
+	padding: 5px;
+	color: white;
+	text-align: center
+}
+
+ul.nav-pills {
+	top: 70px;
+	position: fixed;
+}
+  
+#wrapper
+{
+	margin-top: 5px;
+    height: 510px;
+    width: 100%;
+    border:1px solid black;
+    padding:20px;
+    overflow:auto;
+}
+#scroller
+{
+    height:450px;
+}
+
+.gach
+{
+
+    text-align: center;
+    padding: 20px;
+    color: white;
+    font-size: 25px;
+    border-bottom: 2px solid rgb(57, 57, 218);
+}
+.gach1{
+    margin-left:5px;
+    font-size: 20px;
+    padding: 10px;
+    color: rgb(241, 238, 238);
+    background-color: rgb(108, 214, 37);
+}
+
+.gach1:hover{
+    color: red;
+}
+.chux
+{
+    font-size:20px;
+    margin-top: 15px;
+    color: green;
+    border-bottom: 1px solid rgb(180, 180, 192);
+    margin-bottom: 10px;
+}
+.chux2
+{
+    text-align: left;
+
+}
+.chux1
+{
+    text-align: right;
+}
+.chux2:hover{
+    color: rgb(200, 233, 14);
+}
+.chux1:hover{
+    color: rgb(236, 240, 10);
+}
+.menhde
+{
+    padding: 10px;
+}
+.noidung
+{
+    background-color: rgb(50, 172, 20);
+    border: 1px solid rgb(180, 180, 192);
+    margin-bottom: 20px;
+}
+h5{
+    margin-left: 12px;
+    font-size: 20px;
+    color: rgb(243, 241, 239);
+}
+li{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.maul
+{
+    color: rgb(248, 164, 7);
+}
+.maul:hover
+{
+    color: rgb(253, 252, 251);
+}
+
+ol{
+    border: 1px solid rgb(180, 180, 192);
+    border-left: 5px solid green;
+}
+li{
+    
+    padding: 5px;
+}
+.tuoi
+{
+    border: 1px solid rgb(180, 180, 192);
+    padding: 10px;
+    font-size: 15px;
+}
+hr{
+    border: 1px solid rgb(180, 180, 192);
+}
+
+</style>
+<body th:object="${chitietbaihoc1}" data-spy="scroll" data-target="#myScrollspy" data-offset="1">
+ <div class="fixed-top nachu">
+		<h4>LGLH</h4>
+	</div>
+	<div style="margin-top:50px;margin-bottom:20px;">
+		<div th:remove="tag" th:utext=${chitietbaihoc1.noidung}>
+		</div>
+		<div style="margin-top: 50px;">
+			<a href="http://localhost:8081">Nộp bài</a>
+		</div>
+	</div>
+ 	
+	
+	
+</body>
+</html>
